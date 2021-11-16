@@ -1,6 +1,6 @@
 # Beginning TaskMaster (Lab 26)
 
-add Feature Tasks :
+Features added in this lab :
 
 1. Homepage : create image to mock the “my tasks” view, and buttons at the bottom of the page to allow going to the “add tasks” and “all tasks” page.
 
@@ -9,10 +9,24 @@ add Feature Tasks :
 3. All Task : Create page and add image with a back button
 
 
-![Screenshot1.jpg](screenshots/Screenshot1.jpg)
+![Screenshot1.jpg](screenshots/ScreenshotLab2601.jpg)
+![Screenshot2.jpg](screenshots/ScreenshotLab2602.jpg)
+![Screenshot3.jpg](screenshots/ScreenshotLab2603.jpg)
 
-![Screenshot2.jpg](screenshots/Screenshot2.jpg)
+# Data in TaskMaster (Lab 27)
 
-![Screenshot3.jpg](screenshots/Screenshot3.jpg)
+Features added in this lab :
 
-![Screenshot4.jpg](screenshots/Screenshot4.jpg)
+1. Task Detail Page : Create a Task Detail page. It should have a title at the top of the page 
+
+2. Settings Page : Create a Settings page. It should allow users to enter their username and hit save
+
+3. Homepage : add new three different buttons and when a user taps one of the titles, it should go to the Task Detail page, and the title at the top of the page should match the task title that was tapped on the previous page.
+
+
+
+![Screenshot1.jpg](screenshots/ScreenshotLab2701.jpg)
+![Screenshot2.jpg](screenshots/ScreenshotLab2702.jpg)
+![Screenshot3.jpg](screenshots/ScreenshotLab2703.jpg)
+![Screenshot4.jpg](screenshots/ScreenshotLab2704.jpg)
+![Screenshot5.jpg](screenshots/ScreenshotLab2705.jpg)
