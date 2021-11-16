@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".TaskDetail">
+
+    <TextView
+        android:id="@+id/TitleDetail"
+        android:layout_width="202dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="50dp"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063" />
+
+    <TextView
+        android:id="@+id/textViewDetail"
+        android:layout_width="300dp"
+        android:layout_height="278dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec tempus nibh, vel tempus velit. Maecenas vitae ex sed dui faucibus lacinia. Nulla laoreet, turpis vel condimentum ullamcorper, magna augue tempus risus, id commodo erat nibh at ipsum. Cras feugiat magna magna. Curabitur malesuada augue erat. Nunc consectetur consectetur nibh, eget pharetra nisi efficitur a. Maecenas scelerisque finibus condimentum. Integer vel enim imperdiet, pharetra lorem at, viverra ligula.  "
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.28" />
+</androidx.constraintlayout.widget.ConstraintLayout>
