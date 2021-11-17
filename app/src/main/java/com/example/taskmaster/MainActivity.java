@@ -1,6 +1,8 @@
 package com.example.taskmaster;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +11,9 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +29,21 @@ public class MainActivity extends AppCompatActivity {
         Button TaskDetail1 = findViewById(R.id.TaskDetail1);
         Button TaskDetail2 = findViewById(R.id.TaskDetail2);
         Button TaskDetail3 = findViewById(R.id.TaskDetail3);
+
+        List<Task> allTask = new ArrayList<Task>();
+        Task Task1 = new Task("Title1", "body1", Task.State.NEW );
+        Task Task2 = new Task("Title2", "body2", Task.State.NEW );
+        Task Task3 = new Task("Title3", "body3", Task.State.NEW );
+        Task Task4 = new Task("Title4", "body4", Task.State.NEW );
+        allTask.add(Task1);
+        allTask.add(Task2);
+        allTask.add(Task3);
+        allTask.add(Task4);
+
+
+        RecyclerView taskRecyclerView = findViewById(R.id.TaskRecyclerView);
+        taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        taskRecyclerView.setAdapter(new TaskAdapter(allTask));
 
 
         addTask.setOnClickListener(new View.OnClickListener() {
