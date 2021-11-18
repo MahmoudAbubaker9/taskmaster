@@ -27,19 +27,9 @@ public class MainActivity extends AppCompatActivity {
         Button allTasks = findViewById(R.id.allTasks);
         Button Settings = findViewById(R.id.SettingsBtn);
         Button UserNameSave = findViewById(R.id.UserNamebtn);
-//        TaskDatabase db = Room.databaseBuilder(getApplicationContext(), TaskDatabase.class, "database-name").allowMainThreadQueries().build();
-//        TaskDao userDao = db.userDao();
-//        List<Task> allTask = userDao.getAll();
-
-        List<Task> allTask = new ArrayList<Task>();
-        Task Task1 = new Task("Title1", "body1", State.IN_PROGRESS );
-        Task Task2 = new Task("Title2", "body2", State.NEW );
-        Task Task3 = new Task("Title3", "body3", State.NEW );
-        Task Task4 = new Task("Title4", "body4", State.NEW );
-        allTask.add(Task1);
-        allTask.add(Task2);
-        allTask.add(Task3);
-        allTask.add(Task4);
+        TaskDatabase db = Room.databaseBuilder(getApplicationContext(),TaskDatabase.class, "database-task").allowMainThreadQueries().build();
+        List<Task> allTask = db.userDao().getAll();
+        System.out.println(allTask);
 
         RecyclerView taskRecyclerView = findViewById(R.id.TaskRecyclerView);
         taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));

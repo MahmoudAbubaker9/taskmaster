@@ -18,7 +18,7 @@ public interface TaskDao {
 
 
     @Insert
-    void insertAll(Task... users);
+    void savedata(Task task);
 
 
     @Delete
