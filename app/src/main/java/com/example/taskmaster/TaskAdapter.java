@@ -1,5 +1,6 @@
 package com.example.taskmaster;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,20 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         titleText.setText(holder.task.title);
         bodyText.setText(holder.task.body);
         stateText.setText(holder.task.state.toString());
-        
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent taskDetailsIntent = new Intent(v.getContext(), TaskDetail.class);
+                taskDetailsIntent.putExtra("taskName",holder.task.title);
+                taskDetailsIntent.putExtra("taskBody", holder.task.body);
+                taskDetailsIntent.putExtra("taskState", holder.task.state.toString());
+                v.getContext().startActivity(taskDetailsIntent);
+            }
+        });
+
+
+
     }
 
     @Override

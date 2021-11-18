@@ -24,24 +24,24 @@
         app:layout_constraintVertical_bias="0.07" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="263dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="168dp"
+        android:id="@+id/addtitle"
+        android:layout_width="215dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="132dp"
         android:ems="10"
         android:hint="Task Title"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/cardview_dark_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="263dp"
-        android:layout_height="53dp"
+        android:id="@+id/addbody"
+        android:layout_width="215dp"
+        android:layout_height="60dp"
         android:ems="10"
         android:hint="Task Description"
         android:inputType="textPersonName"
@@ -50,10 +50,27 @@
         android:textColorLink="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintHorizontal_bias="0.255"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintTop_toBottomOf="@+id/addtitle"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <EditText
+        android:id="@+id/addstate"
+        android:layout_width="215dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="Task State"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/cardview_dark_background"
+        android:textColorLink="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.255"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addtitle"
+        app:layout_constraintVertical_bias="0.21" />
 
     <TextView
         android:id="@+id/textView"
@@ -70,7 +87,7 @@
         app:layout_constraintVertical_bias="0.889" />
 
     <Button
-        android:id="@+id/addtask2"
+        android:id="@+id/addtask_btn"
         android:layout_width="118dp"
         android:layout_height="46dp"
         android:text="Add Task"

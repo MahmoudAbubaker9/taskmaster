@@ -45,7 +45,7 @@ public class TaskFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, mTitle);
         args.putString(ARG_PARAM2, mBody);
-        args.putString(ARG_PARAM2, mState);
+        args.putString(ARG_PARAM3, mState);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,7 +56,7 @@ public class TaskFragment extends Fragment {
         if (getArguments() != null) {
             mTitle = getArguments().getString(ARG_PARAM1);
             mBody = getArguments().getString(ARG_PARAM2);
-            mState = getArguments().getString(ARG_PARAM2);
+            mState = getArguments().getString(ARG_PARAM3);
         }
     }
 
