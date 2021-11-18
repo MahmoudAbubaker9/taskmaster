@@ -3,6 +3,7 @@ package com.example.taskmaster;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,20 +27,19 @@ public class MainActivity extends AppCompatActivity {
         Button allTasks = findViewById(R.id.allTasks);
         Button Settings = findViewById(R.id.SettingsBtn);
         Button UserNameSave = findViewById(R.id.UserNamebtn);
-        Button TaskDetail1 = findViewById(R.id.TaskDetail1);
-        Button TaskDetail2 = findViewById(R.id.TaskDetail2);
-        Button TaskDetail3 = findViewById(R.id.TaskDetail3);
+//        TaskDatabase db = Room.databaseBuilder(getApplicationContext(), TaskDatabase.class, "database-name").allowMainThreadQueries().build();
+//        TaskDao userDao = db.userDao();
+//        List<Task> allTask = userDao.getAll();
 
         List<Task> allTask = new ArrayList<Task>();
-        Task Task1 = new Task("Title1", "body1", Task.State.NEW );
-        Task Task2 = new Task("Title2", "body2", Task.State.NEW );
-        Task Task3 = new Task("Title3", "body3", Task.State.NEW );
-        Task Task4 = new Task("Title4", "body4", Task.State.NEW );
+        Task Task1 = new Task("Title1", "body1", State.IN_PROGRESS );
+        Task Task2 = new Task("Title2", "body2", State.NEW );
+        Task Task3 = new Task("Title3", "body3", State.NEW );
+        Task Task4 = new Task("Title4", "body4", State.NEW );
         allTask.add(Task1);
         allTask.add(Task2);
         allTask.add(Task3);
         allTask.add(Task4);
-
 
         RecyclerView taskRecyclerView = findViewById(R.id.TaskRecyclerView);
         taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,36 +66,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent goToSettings = new Intent (MainActivity.this , Settings.class);
                 startActivity(goToSettings);
-            }
-        });
-
-        TaskDetail1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToTaskDetail = new Intent (MainActivity.this , TaskDetail.class);
-                String Task1 = TaskDetail1.getText().toString();
-                goToTaskDetail.putExtra("GetTask",Task1);
-                startActivity(goToTaskDetail);
-            }
-        });
-
-        TaskDetail2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToTaskDetail = new Intent (MainActivity.this , TaskDetail.class);
-                String Task1 = TaskDetail2.getText().toString();
-                goToTaskDetail.putExtra("GetTask",Task1);
-                startActivity(goToTaskDetail);
-            }
-        });
-
-        TaskDetail3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToTaskDetail = new Intent (MainActivity.this , TaskDetail.class);
-                String Task1 = TaskDetail3.getText().toString();
-                goToTaskDetail.putExtra("GetTask",Task1);
-                startActivity(goToTaskDetail);
             }
         });
 

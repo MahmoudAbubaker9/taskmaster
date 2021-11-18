@@ -30,3 +30,18 @@ Features added in this lab :
 ![Screenshot3.jpg](screenshots/ScreenshotLab2703.jpg)
 ![Screenshot4.jpg](screenshots/ScreenshotLab2704.jpg)
 ![Screenshot5.jpg](screenshots/ScreenshotLab2705.jpg)
+
+# RecyclerView (Lab 28)
+
+Features added in this lab :
+
+1. Task Model : Create a Task class. A Task should have a title, a body, and a state. The state should be one of “new”, “assigned”, “in progress”, or “complete”.
+
+2. Homepage : 
+
+* Refactor your homepage to use a RecyclerView for displaying Task data. This should have hardcoded Task data for now and Create a ViewAdapter class that displays data from a list of Tasks.
+
+* Ensure that you can tap on any one of the Tasks in the RecyclerView, and it will appropriately launch the detail page with the correct Task title displayed.
+
+![Screenshot1.jpg](screenshots/ScreenshotLab2801.jpg)
+![Screenshot2.jpg](screenshots/ScreenshotLab2802.jpg)
