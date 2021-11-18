@@ -23,8 +23,6 @@ Features added in this lab :
 
 3. Homepage : add new three different buttons and when a user taps one of the titles, it should go to the Task Detail page, and the title at the top of the page should match the task title that was tapped on the previous page.
 
-
-
 ![Screenshot1.jpg](screenshots/ScreenshotLab2701.jpg)
 ![Screenshot2.jpg](screenshots/ScreenshotLab2702.jpg)
 ![Screenshot3.jpg](screenshots/ScreenshotLab2703.jpg)
@@ -45,3 +43,16 @@ Features added in this lab :
 
 ![Screenshot1.jpg](screenshots/ScreenshotLab2801.jpg)
 ![Screenshot2.jpg](screenshots/ScreenshotLab2802.jpg)
+
+# Room (Lab 29)
+
+Features added in this lab :
+
+1. Task Model and Room : set up Room in your application, and modify your Task class to be an Entity.
+2. Add Task Form : Modify your Add Task form to save the data entered in as a Task in your local database.
+3. Homepage : Refactor your homepage’s RecyclerView to display all Task entities in your database.
+4. detail page : description and status of a tapped task are also displayed on the detail page
+
+![Screenshot1.jpg](screenshots/ScreenshotLab2901.jpg)
+![Screenshot2.jpg](screenshots/ScreenshotLab2902.jpg)
+![Screenshot2.jpg](screenshots/ScreenshotLab2903.jpg)
