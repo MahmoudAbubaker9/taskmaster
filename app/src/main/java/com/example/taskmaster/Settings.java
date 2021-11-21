@@ -27,7 +27,7 @@ public class Settings extends AppCompatActivity {
             String UserName = UserNameEdit.getText().toString();
 
             SharedPreferences ShareUserName = PreferenceManager.getDefaultSharedPreferences(Settings.this);
-            ShareUserName.edit().putString("UserName",UserName).apply();
+            ShareUserName.edit().putString("UserName",UserName +"  Tasks").apply();
             Toast.makeText(getApplicationContext(), "submitted!",Toast.LENGTH_LONG).show();
         }
     });
