@@ -1,0 +1,13 @@
+type Task @model {
+  id: ID!
+  title: String!
+  body: String
+  state: State!
+}
+
+enum  State {
+  NEW
+  ASSIGNED
+  IN_PROCESS
+  COMPLETE
+}
