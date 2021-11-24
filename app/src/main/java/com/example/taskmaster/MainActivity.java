@@ -9,9 +9,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.core.Amplify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +35,16 @@ public class MainActivity extends AppCompatActivity {
         TaskDatabase db = Room.databaseBuilder(getApplicationContext(),TaskDatabase.class, "database-task").allowMainThreadQueries().build();
         List<Task> allTask = db.userDao().getAll();
         System.out.println(allTask);
+
+        try {
+            // Add these lines to add the AWSApiPlugin plugins
+            Amplify.addPlugin(new AWSApiPlugin());
+            Amplify.configure(getApplicationContext());
+
+            Log.i("MyAmplifyApp", "Initialized Amplify");
+        } catch (AmplifyException error) {
+            Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
+        }
 
         RecyclerView taskRecyclerView = findViewById(R.id.TaskRecyclerView);
         taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
