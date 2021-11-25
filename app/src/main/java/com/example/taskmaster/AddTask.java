@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Task;
 
 public class AddTask extends AppCompatActivity {
 
@@ -37,11 +38,12 @@ public class AddTask extends AppCompatActivity {
 
                 Task task = Task.builder().title(titles).body(bodys).state(states).build();
 
-                Amplify.API.mutate(
-                        ModelMutation.create(task),
-                        response -> Log.i("MyAmplifyApp", "Added Todo with id: " + response.getData().getId()),
-                        error -> Log.e("MyAmplifyApp", "Create failed", error)
+                Amplify.DataStore.save(
+                        task,
+                        success -> Log.i("Amplify", "Saved item: " + success.item().getId()),
+                        error -> Log.e("Amplify", "Could not save item to DataStore", error)
                 );
+
                 Intent goToMain = new Intent(AddTask.this, MainActivity.class);
                 startActivity(goToMain);
             }

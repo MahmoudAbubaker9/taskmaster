@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amplifyframework.datastore.generated.model.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,17 +46,17 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         TextView bodyText = holder.itemView.findViewById(R.id.bodyholder);
         TextView stateText = holder.itemView.findViewById(R.id.stateholder);
 
-        titleText.setText(holder.task.title);
-        bodyText.setText(holder.task.body);
-        stateText.setText(holder.task.state.toString());
+        titleText.setText(holder.task.getTitle());
+        bodyText.setText(holder.task.getBody());
+        stateText.setText(holder.task.getState().toString());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent taskDetailsIntent = new Intent(v.getContext(), TaskDetail.class);
-                taskDetailsIntent.putExtra("taskName",holder.task.title);
-                taskDetailsIntent.putExtra("taskBody", holder.task.body);
-                taskDetailsIntent.putExtra("taskState", holder.task.state.toString());
+                taskDetailsIntent.putExtra("taskName",holder.task.getTitle());
+                taskDetailsIntent.putExtra("taskBody", holder.task.getBody());
+                taskDetailsIntent.putExtra("taskState", holder.task.getState().toString());
                 v.getContext().startActivity(taskDetailsIntent);
             }
         });
