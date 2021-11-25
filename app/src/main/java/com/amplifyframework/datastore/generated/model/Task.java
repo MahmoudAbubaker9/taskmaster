@@ -26,8 +26,8 @@ public final class Task implements Model {
   public static final QueryField STATE = field("Task", "state");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String title;
-  private final @ModelField(targetType="String") String body;
-  private final @ModelField(targetType="State", isRequired = true) State state;
+  private final @ModelField(targetType="String", isRequired = true) String body;
+  private final @ModelField(targetType="String", isRequired = true) String state;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -42,7 +42,7 @@ public final class Task implements Model {
       return body;
   }
   
-  public State getState() {
+  public String getState() {
       return state;
   }
   
@@ -54,7 +54,7 @@ public final class Task implements Model {
       return updatedAt;
   }
   
-  private Task(String id, String title, String body, State state) {
+  private Task(String id, String title, String body, String state) {
     this.id = id;
     this.title = title;
     this.body = body;
@@ -133,27 +133,31 @@ public final class Task implements Model {
       state);
   }
   public interface TitleStep {
-    StateStep title(String title);
+    BodyStep title(String title);
+  }
+  
+
+  public interface BodyStep {
+    StateStep body(String body);
   }
   
 
   public interface StateStep {
-    BuildStep state(State state);
+    BuildStep state(String state);
   }
   
 
   public interface BuildStep {
     Task build();
     BuildStep id(String id);
-    BuildStep body(String body);
   }
   
 
-  public static class Builder implements TitleStep, StateStep, BuildStep {
+  public static class Builder implements TitleStep, BodyStep, StateStep, BuildStep {
     private String id;
     private String title;
-    private State state;
     private String body;
+    private String state;
     @Override
      public Task build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -166,22 +170,23 @@ public final class Task implements Model {
     }
     
     @Override
-     public StateStep title(String title) {
+     public BodyStep title(String title) {
         Objects.requireNonNull(title);
         this.title = title;
         return this;
     }
     
     @Override
-     public BuildStep state(State state) {
-        Objects.requireNonNull(state);
-        this.state = state;
+     public StateStep body(String body) {
+        Objects.requireNonNull(body);
+        this.body = body;
         return this;
     }
     
     @Override
-     public BuildStep body(String body) {
-        this.body = body;
+     public BuildStep state(String state) {
+        Objects.requireNonNull(state);
+        this.state = state;
         return this;
     }
     
@@ -197,11 +202,11 @@ public final class Task implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String title, String body, State state) {
+    private CopyOfBuilder(String id, String title, String body, String state) {
       super.id(id);
       super.title(title)
-        .state(state)
-        .body(body);
+        .body(body)
+        .state(state);
     }
     
     @Override
@@ -210,13 +215,13 @@ public final class Task implements Model {
     }
     
     @Override
-     public CopyOfBuilder state(State state) {
-      return (CopyOfBuilder) super.state(state);
+     public CopyOfBuilder body(String body) {
+      return (CopyOfBuilder) super.body(body);
     }
     
     @Override
-     public CopyOfBuilder body(String body) {
-      return (CopyOfBuilder) super.body(body);
+     public CopyOfBuilder state(String state) {
+      return (CopyOfBuilder) super.state(state);
     }
   }
   

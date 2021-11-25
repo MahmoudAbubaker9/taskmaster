@@ -56,3 +56,14 @@ Features added in this lab :
 ![Screenshot1.jpg](screenshots/ScreenshotLab2901.jpg)
 ![Screenshot2.jpg](screenshots/ScreenshotLab2902.jpg)
 ![Screenshot2.jpg](screenshots/ScreenshotLab2903.jpg)
+
+# Amplify and DynamoDB (Lab 32)
+
+Features added in this lab :
+
+Using the amplify add api command, create a Task resource that replicates our existing Task schema. Update all references to the Task data to instead use AWS Amplify to access your data in DynamoDB.
+
+1. Modify the Add Task form to save the data entered in as a Task to DynamoDB.
+2. Refactor your homepage’s RecyclerView to display all Task entities in DynamoDB.
+
+![Screenshot1.jpg](screenshots/ScreenshotLab3201.jpg)
