@@ -15,44 +15,57 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="126dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/Titleholder"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="120dp"
+            android:layout_height="31dp"
             android:layout_marginStart="40dp"
             android:hint="Title"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.473" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/bodyholder"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="28dp"
+            android:layout_width="70dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="20dp"
             android:hint="Title"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/Titleholder"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.491" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/stateholder"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:layout_height="31dp"
             android:hint="Title"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.627"
+            app:layout_constraintHorizontal_bias="0.084"
             app:layout_constraintStart_toEndOf="@+id/bodyholder"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.491" />
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/teamHolder"
+            android:layout_width="50dp"
+            android:layout_height="31dp"
+            android:hint="Title"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.721"
+            app:layout_constraintStart_toEndOf="@+id/bodyholder"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

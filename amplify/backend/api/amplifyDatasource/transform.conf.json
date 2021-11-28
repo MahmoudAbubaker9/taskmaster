@@ -2,7 +2,7 @@
     "Version": 5,
     "ResolverConfig": {
         "project": {
-            "ConflictHandler": "OPTIMISTIC_CONCURRENCY",
+            "ConflictHandler": "AUTOMERGE",
             "ConflictDetection": "VERSION"
         }
     },

@@ -33,4 +33,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:textColorHighlight="#FF0000" />
+
+    <RadioGroup
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282">
+
+        <RadioButton
+            android:id="@+id/radioSitting1"
+            android:layout_width="94dp"
+            android:layout_height="34dp"
+            android:text="Team 1"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radioSitting2"
+            android:layout_width="94dp"
+            android:layout_height="34dp"
+            android:text="Team 2"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radioSitting3"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:text="Team 3"
+            android:textColor="@color/black" />
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

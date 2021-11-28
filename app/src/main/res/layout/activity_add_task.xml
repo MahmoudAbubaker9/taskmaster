@@ -73,7 +73,7 @@
         app:layout_constraintVertical_bias="0.21" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView111"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Task : 0"
@@ -94,9 +94,57 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.622" />
+        app:layout_constraintVertical_bias="0.769" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="203dp"
+        android:layout_height="27dp"
+        android:text="Please choose your team"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.544" />
+
+    <RadioGroup
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.594">
+
+        <RadioButton
+            android:id="@+id/radioTeam1"
+            android:layout_width="94dp"
+            android:layout_height="34dp"
+            android:text="Team 1"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radioTeam2"
+            android:layout_width="94dp"
+            android:layout_height="34dp"
+            android:text="Team 2"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radioTeam3"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:text="Team 3"
+            android:textColor="@color/black" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
