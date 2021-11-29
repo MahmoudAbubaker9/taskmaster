@@ -41,13 +41,13 @@ public class AddTask extends AppCompatActivity {
 
                 String teamSelection = null;
                 if(radioButton1.isChecked()){
-                    teamSelection="1";
+                    teamSelection="Team 1";
                 }
                 else if(radioButton2.isChecked()){
-                    teamSelection="2";
+                    teamSelection="Team 2";
                 }
                 else if(radioButton3.isChecked()){
-                    teamSelection="3";
+                    teamSelection="Team 3";
                 }
 
 
