@@ -67,3 +67,19 @@ Using the amplify add api command, create a Task resource that replicates our ex
 2. Refactor your homepage’s RecyclerView to display all Task entities in DynamoDB.
 
 ![Screenshot1.jpg](screenshots/ScreenshotLab3201.jpg)
+
+# Related Data (Lab 33)
+
+SOON....
+
+# Cognito (Lab 36)
+
+Features added in this lab :
+
+1. Add user login and sign up
+
+2. Allow users to log out of your application.
+
+![Screenshot1.jpg](screenshots/ScreenshotLab3601.jpg)
+![Screenshot2.jpg](screenshots/ScreenshotLab3602.jpg)
+![Screenshot3.jpg](screenshots/ScreenshotLab3603.jpg)
