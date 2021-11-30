@@ -17,5 +17,11 @@ export type AmplifyDependentResourcesAttributes = {
             "AppClientIDWeb": "string",
             "AppClientID": "string"
         }
+    },
+    "storage": {
+        "s3mahmoudtask": {
+            "BucketName": "string",
+            "Region": "string"
+        }
     }
 }

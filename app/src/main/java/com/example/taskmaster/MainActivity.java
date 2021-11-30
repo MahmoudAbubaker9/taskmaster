@@ -27,7 +27,11 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.datastore.generated.model.Task;
 import com.amplifyframework.datastore.generated.model.Team;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
-//            Amplify.addPlugin(new AWSDataStorePlugin());
+            Amplify.addPlugin(new AWSS3StoragePlugin());
+//          Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.configure(getApplicationContext());
             Log.i("Tutorial", "Initialized Amplify");
         } catch (AmplifyException failure) {
@@ -74,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                     }
                 });
+
+
 
 
 
@@ -140,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        uploadFile();
+
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,6 +193,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+    private void uploadFile() {
+        File exampleFile = new File(getApplicationContext().getFilesDir(), "ExampleKey");
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(exampleFile));
+            writer.append("Example file contents");
+            writer.close();
+        } catch (Exception exception) {
+            Log.e("MyAmplifyApp", "Upload failed", exception);
+        }
+
+        Amplify.Storage.uploadFile(
+                "ExampleKey",
+                exampleFile,
+                result -> Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey()),
+                storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
+        );
+    }
+
 
     public void createTasksList() {
 

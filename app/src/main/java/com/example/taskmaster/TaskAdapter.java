@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,12 +46,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         TextView titleText = holder.itemView.findViewById(R.id.Titleholder);
         TextView bodyText = holder.itemView.findViewById(R.id.bodyholder);
         TextView stateText = holder.itemView.findViewById(R.id.stateholder);
-//        TextView teamText = holder.itemView.findViewById(R.id.teamHolder);
 
         titleText.setText(holder.task.getTitle());
         bodyText.setText(holder.task.getBody());
         stateText.setText(holder.task.getState());
-//        teamText.setText(holder.task.getTeamId());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +58,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                 taskDetailsIntent.putExtra("taskName",holder.task.getTitle());
                 taskDetailsIntent.putExtra("taskBody", holder.task.getBody());
                 taskDetailsIntent.putExtra("taskState", holder.task.getState());
-                taskDetailsIntent.putExtra("taskTeam", holder.task.getTeamId());
+                taskDetailsIntent.putExtra("taskImage", holder.task.getImage());
                 v.getContext().startActivity(taskDetailsIntent);
             }
         });
