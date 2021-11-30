@@ -91,7 +91,7 @@
         android:layout_width="118dp"
         android:layout_height="46dp"
         android:text="Add Task"
-        android:textColor="@color/black"
+        android:textColor="@color/browser_actions_bg_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.17"
@@ -146,5 +146,18 @@
             android:text="Team 3"
             android:textColor="@color/black" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/uploadimg_btn"
+        android:layout_width="118dp"
+        android:layout_height="48dp"
+        android:text="Upload Image"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.686" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

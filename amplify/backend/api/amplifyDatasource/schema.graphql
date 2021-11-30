@@ -10,5 +10,6 @@ type Task @model @key(name: "byTeam", fields: ["teamID"]) {
   body: String!
   state: String!
   teamID: ID
+  image: String
 }
  

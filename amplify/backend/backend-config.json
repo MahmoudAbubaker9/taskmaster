@@ -8,6 +8,12 @@
           "additionalAuthenticationProviders": [
             {
               "authenticationType": "AWS_IAM"
+            },
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authtaskmasterc1d4ea7f"
+              }
             }
           ],
           "defaultAuthentication": {
@@ -45,6 +51,13 @@
           "EMAIL"
         ]
       }
+    }
+  },
+  "storage": {
+    "s3mahmoudtask": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   }
 }

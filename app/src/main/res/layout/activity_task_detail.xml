@@ -37,18 +37,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.24" />
 
     <TextView
-        android:id="@+id/textViewDetail"
-        android:layout_width="241dp"
-        android:layout_height="200dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec tempus nibh, vel tempus velit. Maecenas vitae ex sed dui faucibus lacinia. Nulla laoreet, turpis vel condimentum ullamcorper, magna augue tempus risus, id commodo erat nibh at ipsum. Cras feugiat magna magna. Curabitur malesuada augue erat. Nunc consectetur consectetur nibh, eget pharetra nisi efficitur a. Maecenas scelerisque finibus condimentum. Integer vel enim imperdiet, pharetra lorem at, viverra ligula.  "
+        android:id="@+id/bodyDetail"
+        android:layout_width="202dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="50dp"
+        android:hint="Body"
         android:textColor="@color/black"
+        android:textSize="34sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.367" />
+        app:layout_constraintVertical_bias="0.15" />
+
+    <ImageView
+        android:id="@+id/imageupload"
+        android:layout_width="333dp"
+        android:layout_height="331dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

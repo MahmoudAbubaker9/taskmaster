@@ -13,10 +13,14 @@
       }
     },
     "apiName": "amplifyDatasource",
-    "gqlSchemaPath": "/tmp/amplify-596095de-d880-403d-87fd-a8b6b0434c36/amplify/backend/api/amplifyDatasource/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-2cf4bd82-d09c-472d-ba58-ea6b64ebf5e4/amplify/backend/api/amplifyDatasource/schema.graphql",
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
+      },
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authtaskmasterc1d4ea7f"
       }
     ]
   }
