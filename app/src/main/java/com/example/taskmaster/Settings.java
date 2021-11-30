@@ -23,6 +23,7 @@ import java.util.Map;
 
 public class Settings extends AppCompatActivity {
 
+    String teamSelection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +54,13 @@ public class Settings extends AppCompatActivity {
     UserNameSave.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            EditText UserNameEdit = findViewById(R.id.UserNameEdit);
-            String UserName = UserNameEdit.getText().toString();
+//            EditText UserNameEdit = findViewById(R.id.UserNameEdit);
+//            String UserName = UserNameEdit.getText().toString();
 
 
 
 
-            String teamSelection = null;
+
             if(radioButton1.isChecked()){
                 teamSelection="Team 1";
             }
@@ -74,9 +75,13 @@ public class Settings extends AppCompatActivity {
 
             SharedPreferences ShareUserName = PreferenceManager.getDefaultSharedPreferences(Settings.this);
             ShareUserName.edit().putString("UserName", Amplify.Auth.getCurrentUser().getUsername() +"  Tasks").apply();
-//            ShareUserName.edit().putString("teamId",teamSelection ).apply();
-            ShareUserName.edit().putString("teamId", teamList.get(teamSelection)).apply();
-            Log.i("test33", teamList.get(teamSelection));
+
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Settings.this);
+            sharedPreferences.edit().putString("teamId",teamSelection).apply();
+
+            //            ShareUserName.edit().putString("teamId",teamSelection ).apply();
+//            ShareUserName.edit().putString("teamId", teamList.get(teamSelection)).apply();
+            Log.i("test33", teamSelection);
             Toast.makeText(getApplicationContext(), "submitted!",Toast.LENGTH_LONG).show();
         }
     });

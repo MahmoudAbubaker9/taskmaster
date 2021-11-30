@@ -70,14 +70,23 @@ Using the amplify add api command, create a Task resource that replicates our ex
 
 # Related Data (Lab 33)
 
-SOON....
+Features added in this lab :
+
+1. Create a second entity for a team
+2.  Add Task  include a Radio Buttons for which team that task belongs to.
+3. allow the user to choose their team on the Settings page. Use that Team to display only that team’s tasks on the homepage.
+
+
+![Screenshot1.jpg](screenshots/ScreenshotLab3301.jpg)
+![Screenshot2.jpg](screenshots/ScreenshotLab3302.jpg)
+![Screenshot3.jpg](screenshots/ScreenshotLab3303.jpg)
+![Screenshot4.jpg](screenshots/ScreenshotLab3304.jpg)
 
 # Cognito (Lab 36)
 
 Features added in this lab :
 
 1. Add user login and sign up
-
 2. Allow users to log out of your application.
 
 ![Screenshot1.jpg](screenshots/ScreenshotLab3601.jpg)

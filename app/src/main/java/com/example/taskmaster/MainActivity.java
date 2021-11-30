@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
 
     String teamId = "";
 
+    Handler handler;
+
+    RecyclerView taskRecyclerView;
+
+    List<Task> allTask = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,22 +52,35 @@ public class MainActivity extends AppCompatActivity {
         Button SignIn = findViewById(R.id.sginin_btn);
         Button logOut = findViewById(R.id.signout_btn);
 
-
+        taskRecyclerView = findViewById(R.id.TaskRecyclerView);
 
         try {
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
-            Amplify.addPlugin(new AWSDataStorePlugin());
+//            Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.configure(getApplicationContext());
             Log.i("Tutorial", "Initialized Amplify");
         } catch (AmplifyException failure) {
             Log.e("Tutorial", "Could not initialize Amplify", failure);
         }
 
+        handler = new Handler(Looper.getMainLooper(),
+                new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(@NonNull Message message) {
+                        if (message.what==1){
+                            taskRecyclerView.getAdapter().notifyDataSetChanged();
+                        }
+                        return false;
+                    }
+                });
+
+
+
 //        Team teamOne = Team.builder().name("Team 1").build();
 //        Team teamTwo = Team.builder().name("Team 2").build();
 //        Team teamThree = Team.builder().name("Team 3").build();
-
+//
 //        Amplify.API.mutate(
 //                ModelMutation.create(teamOne),
 //                response -> Log.i("TaskMaster", "Added Todo with id: " + response.getData().getId()),
@@ -78,36 +97,36 @@ public class MainActivity extends AppCompatActivity {
 //                error -> Log.e("TaskMaster", "Create failed", error)
 //        );
 
-        Amplify.DataStore.observe(Task.class,
-                started -> Log.i("Tutorial", "Observation began."),
-                change -> Log.i("Tutorial", change.item().toString()),
-                failure -> Log.e("Tutorial", "Observation failed.", failure),
-                () -> Log.i("Tutorial", "Observation complete.")
-        );
+
+
+//        Amplify.DataStore.observe(Task.class,
+//                started -> Log.i("Tutorial", "Observation began."),
+//                change -> Log.i("Tutorial", change.item().toString()),
+//                failure -> Log.e("Tutorial", "Observation failed.", failure),
+//                () -> Log.i("Tutorial", "Observation complete.")
+//        );
 
         Amplify.Auth.fetchAuthSession(
                 result -> Log.i("AmplifyQuickstart", result.toString()),
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
 
-        List<Task> allTask = new ArrayList<>();
 
 
-        Amplify.DataStore.query(
-                Task.class,
-                response -> {
-                    while (response.hasNext()){
-                        Task item = response.next();
-                        allTask.add(item);
-                        Log.i("type of response", item.getId());
-                    }
-                },
-                error -> Log.e("MyAmplifyApp", "Query failure", error)
-        );
+//        Amplify.DataStore.query(
+//                Task.class,
+//                response -> {
+//                    while (response.hasNext()){
+//                        Task item = response.next();
+//                        allTask.add(item);
+//                        Log.i("type of response", item.getId());
+//                    }
+//                },
+//                error -> Log.e("MyAmplifyApp", "Query failure", error)
+//        );
 
-        RecyclerView taskRecyclerView = findViewById(R.id.TaskRecyclerView);
-        taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        taskRecyclerView.setAdapter(new TaskAdapter(allTask));
+
+
 
         SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,7 +181,32 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
         }
+
+    public void createTasksList() {
+
+
+
+        Log.i("track", "after Handler");
+        Amplify.API.query(
+                ModelQuery.list(Team.class, Team.NAME.contains(teamId)),
+                response -> {
+                    for (Team team : response.getData()) {
+                        allTask = team.getTasks();
+                        Log.i("test1", team.getName());
+
+                    }
+                    handler.sendEmptyMessage(1);
+                    Log.i("track", "after message");
+                    Log.i("MyAmplifyApp111", allTask.toString());
+
+                },
+                error -> Log.e("MyAmplifyApp", "Query failure", error)
+        );
+
+    }
 
     @Override
     protected void onResume() {
@@ -173,25 +217,45 @@ public class MainActivity extends AppCompatActivity {
 
 
         SharedPreferences ShareUserName = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        String defultName = ShareUserName.getString("UserName","User Name Not Found");
+        String defultName = ShareUserName.getString("UserName","No Data");
         TextView UserViewMain = findViewById(R.id.UserNameDisplay);
         UserViewMain.setText(defultName);
 
 
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        String teamId = sharedPreferences.getString("teamId", "the user didn't add a name yet!");
+        this.teamId = teamId;
 
 
-        List<Task> allTask = new ArrayList<>();
-        Amplify.DataStore.query(
-                Task.class,
-                response -> {
-                    while (response.hasNext()){
-                        Task item = response.next();
-                        allTask.add(item);
-                        Log.i("type of response", item.getId());
-                    }
-                },
-                error -> Log.e("MyAmplifyApp", "Query failure", error)
-        );
+
+
+
+
+
+//        Amplify.DataStore.query(
+//                Task.class,
+//                response -> {
+//                    while (response.hasNext()){
+//                        Task item = response.next();
+//                        allTask.add(item);
+//                        Log.i("response1", item.getId());
+//                    }
+//                },
+//                error -> Log.e("MyAmplifyApp", "Query failure", error)
+//        );
+
+
+
+        createTasksList();
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+
+        taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        taskRecyclerView.setAdapter(new TaskAdapter(allTask));
 
         Amplify.Auth.fetchAuthSession(
                 result -> {
@@ -211,5 +275,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
     }
+
+
 
 }
