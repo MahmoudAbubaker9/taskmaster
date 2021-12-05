@@ -55,14 +55,12 @@ public class MainActivity extends AppCompatActivity {
         Button Settings = findViewById(R.id.SettingsBtn);
         Button SignIn = findViewById(R.id.sginin_btn);
         Button logOut = findViewById(R.id.signout_btn);
-
         taskRecyclerView = findViewById(R.id.TaskRecyclerView);
 
         try {
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
-//          Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.configure(getApplicationContext());
             Log.i("Tutorial", "Initialized Amplify");
         } catch (AmplifyException failure) {
@@ -117,22 +115,6 @@ public class MainActivity extends AppCompatActivity {
                 result -> Log.i("AmplifyQuickstart", result.toString()),
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
-
-
-
-//        Amplify.DataStore.query(
-//                Task.class,
-//                response -> {
-//                    while (response.hasNext()){
-//                        Task item = response.next();
-//                        allTask.add(item);
-//                        Log.i("type of response", item.getId());
-//                    }
-//                },
-//                error -> Log.e("MyAmplifyApp", "Query failure", error)
-//        );
-
-
 
 
         SignIn.setOnClickListener(new View.OnClickListener() {
@@ -257,30 +239,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-//        Amplify.DataStore.query(
-//                Task.class,
-//                response -> {
-//                    while (response.hasNext()){
-//                        Task item = response.next();
-//                        allTask.add(item);
-//                        Log.i("response1", item.getId());
-//                    }
-//                },
-//                error -> Log.e("MyAmplifyApp", "Query failure", error)
-//        );
-
-
-
         createTasksList();
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
 
 
         taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -302,9 +261,5 @@ public class MainActivity extends AppCompatActivity {
                 },
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
-
     }
-
-
-
 }

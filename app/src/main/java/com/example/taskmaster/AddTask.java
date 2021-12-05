@@ -43,8 +43,6 @@ public class AddTask extends AppCompatActivity {
     RecyclerView taskRecyclerView;
     String teamSelection;
     Team team;
-    Intent chooseFile;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +90,17 @@ public class AddTask extends AppCompatActivity {
                     }
                 }
 
+                Intent intent = getIntent();
+                String action = intent.getAction();
+                String type = intent.getType();
+                if (Intent.ACTION_SEND.equals(action) && type != null) {
+                    if (type.startsWith("image/")) {
+                        handleSendImage(intent); // Handle single image being sent
+                    }
+                }
+
+
+
                 handler = new Handler(Looper.getMainLooper(),
                         new Handler.Callback() {
                             @Override
@@ -125,6 +134,9 @@ public class AddTask extends AppCompatActivity {
 
     }
 
+
+
+
     public void getTeam(){
         Amplify.API.query(
                 ModelQuery.list(Team.class, Team.NAME.contains(teamSelection)),
@@ -141,6 +153,26 @@ public class AddTask extends AppCompatActivity {
         );
     }
 
+    void handleSendImage(Intent intent) {
+        Uri imageUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+        File file = new File(imageUri.getPath());
+        imgName =file.getName();
+        if (imageUri != null) {
+            try {
+                InputStream exampleInputStream = getContentResolver().openInputStream(imageUri);
+                Amplify.Storage.uploadInputStream(
+                        imgName,
+                        exampleInputStream,
+                        result -> Log.i("TaskMaster", "Successfully uploaded: " + result.getKey()),
+                        storageFailure -> Log.e("TaskMaster", "Upload failed", storageFailure)
+                );
+            } catch (FileNotFoundException error) {
+                Log.e("TaskMaster", "Could not find file to open for input stream.", error);
+            }
+        }
+        Toast.makeText(getApplicationContext(),imageUri.getPath(),Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -148,8 +180,4 @@ public class AddTask extends AppCompatActivity {
         imgName = file.getName();
         imgData = data.getData();
     }
-
-
-
-
 }
