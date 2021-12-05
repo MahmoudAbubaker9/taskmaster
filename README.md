@@ -94,7 +94,16 @@ Features added in this lab :
 ![Screenshot3.jpg](screenshots/ScreenshotLab3603.jpg)
 
 
+# S3 Uploads (Lab 37)
 
+Features added in this lab :
+
+1. allow users to optionally select a file to attach to that task. If a user attaches a file to a task, that file should be uploaded to S3.
+
+2. image should be displayed within that details activity.
+
+![Screenshot1.jpg](screenshots/ScreenshotLab3701.jpg)
+![Screenshot2.jpg](screenshots/ScreenshotLab3702.jpg)
 
 
 # Intent Filters (Lab 41)
